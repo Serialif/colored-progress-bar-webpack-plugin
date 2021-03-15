@@ -4,7 +4,7 @@
     <p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin.png"
              alt="Colored Progress Bar Webpack Plugin"></p>
 
-<h3 align="center">A progress bar plugin for Webpack with customizable color and width.</h3>
+<h3 align="center">A customizable colorful progress bar plugin for Webpack</h3>
 <p align="center"><a href="https://github.com/webpack/webpack"><img width="60" height="60" src="https://webpack.js.org/assets/icon-square-big.svg" alt="Webpack"></a></p>
 <hr>
 <p align="center"><img src="https://media.giphy.com/media/lrbIDcwxyyo9eKLAXw/giphy.gif" alt="colored-progress-bar-webpack-plugin">
@@ -12,6 +12,7 @@
 </div>
 
 # Colored Progress Bar Webpack Plugin
+
 ## Installation
 
 ```
@@ -34,26 +35,34 @@ plugins: [
 
 ## Options
 
-#### `width` - The width of the progress bar (on a single line)
+- #### Widths
+    - `width` - Width of the progress bar (on a single line)
+    - `endWidth` - Width of the progress bar after completed (also on a single line)
 
-#### `color` - The color of the progress bar accepts the following values:
+- #### Visibility after completed
+    - `clear` - Clear all the progress bar
+    - `clearStatus` - Clear only status
+    - `clearBar` - Clear only bar
+    - `clearPerCent` - Clear only percentage
 
-- `black`
-- `red`
-- `green`
-- `yellow`
-- `blue`
-- `magenta`
-- `cyan`
-- `white`
-- `blackBright` (alias: `gray`, `grey`)
-- `redBright`
-- `greenBright`
-- `yellowBright`
-- `blueBright`
-- `magentaBright`
-- `cyanBright`
-- `whiteBright`
+- #### `color` - Color of the progress bar accepts the following values:
+
+    - `black`
+    - `red`
+    - `green`
+    - `yellow`
+    - `blue`
+    - `magenta`
+    - `cyan`
+    - `white`
+    - `blackBright` (alias: `gray`, `grey`)
+    - `redBright`
+    - `greenBright`
+    - `yellowBright`
+    - `blueBright`
+    - `magentaBright`
+    - `cyanBright`
+    - `whiteBright`
 
 Accept almost any modifiers, colors and background colors from [chalk](https://github.com/chalk/chalk).
 
@@ -61,13 +70,18 @@ The default options are :
 
 ```javascript
     new ColoredProgressBar({
-    width: 50,
-    color: 'blue'
-})
+      width: 50,
+      endWidth: 50,
+      color: 'blue',
+      clear: false,
+      clearStatus: false,
+      clearBar: false,
+      clearPerCent: false
+    })
 ```
 
-
 ## Dependencies
+
 - [node-progress](https://github.com/visionmedia/node-progress)
 - [chalk](https://github.com/chalk/chalk)
 
