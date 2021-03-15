@@ -1,6 +1,6 @@
 {
   "name": "colored-progress-bar-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable colorful progress bar plugin for Webpack.",
   "main": "index.js",
   "dependencies": {
