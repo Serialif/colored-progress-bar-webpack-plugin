@@ -23,12 +23,12 @@ npm i -D colored-progress-bar-webpack-plugin
 Include the following in your Webpack config.
 
 ```javascript
-const ColoredProgressBarPlugin = require('colored-progress-bar-webpack-plugin');
+const ColoredProgressBar = require('colored-progress-bar-webpack-plugin');
 
 ...
 
 plugins: [
-    new ColoredProgressBarPlugin()
+    new ColoredProgressBar()
 ]
 ```
 
@@ -60,16 +60,14 @@ Accept almost any modifiers, colors and background colors from [chalk](https://g
 The default options are :
 
 ```javascript
-    new ColoredProgressBarPlugin({
+    new ColoredProgressBar({
     width: 50,
-    endWidth: 0,
     color: 'blue'
 })
 ```
 
 
 ## Dependencies
-- [webpack](https://github.com/webpack/webpack)
 - [node-progress](https://github.com/visionmedia/node-progress)
 - [chalk](https://github.com/chalk/chalk)
 
