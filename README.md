@@ -1,5 +1,5 @@
 <div align="center">
-    <p align="center"><a href="https://serialif.com"><img width="80" height="80" src="https://serialif.com/images/serialif.png" alt="Serialif"></a>
+    <p align="center"><a href="https://serialif.com"><img width="80" height="80" src="https://serialif.com/images/serialif-white.png" alt="Serialif"></a>
 <hr>
     <p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin.png"
              alt="Colored Progress Bar Webpack Plugin"></p>
