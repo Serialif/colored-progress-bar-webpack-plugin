@@ -2,7 +2,7 @@
 
 // process.exit(0)
 
-// inspired by kuler and node-progress
+// inspired by kuler, node-progress and ansi-parser
 
 const Progress = require('./lib/node-progress')
 const webpack = require('webpack')
