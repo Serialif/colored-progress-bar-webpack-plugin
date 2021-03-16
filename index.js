@@ -1,5 +1,7 @@
 // 'use strict';
 
+// process.exit(0)
+
 // inspired by kuler and node-progress
 
 const Progress = require('./lib/node-progress')
@@ -66,14 +68,14 @@ module.exports = function ColoredProgressBarPlugin(options) {
         return '\x1b[' + color + 'm' + text + '\x1b[39;49m'
     }
 
-    let fmt
+    let format
 
     if (options.global.color === null) {
-        fmt = colorize(ansiColors[options.status.color], ':completed ')
+        format = colorize(ansiColors[options.status.color], ':completed ')
             + colorize(ansiColors[options.bar.color], ':bar ')
             + colorize(ansiColors[options.percent.color], ':percent :msg')
     } else {
-        fmt = colorize(ansiColors[options.global.color], ':completed :bar :percent :msg')
+        format = colorize(ansiColors[options.global.color], ':completed :bar :percent :msg')
     }
 
     const opt = Object.assign({
@@ -84,7 +86,7 @@ module.exports = function ColoredProgressBarPlugin(options) {
         clear: options.clear
     });
 
-    let bar = new Progress(fmt, opt);
+    let bar = new Progress(format, opt);
     let completed = false;
     process.stderr.write('\n')
 
@@ -107,8 +109,3 @@ module.exports = function ColoredProgressBarPlugin(options) {
     });
 };
 
-
-dd = (item = null) => {
-    console.log(item)
-    process.exit(0)
-}
