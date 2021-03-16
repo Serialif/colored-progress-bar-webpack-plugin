@@ -1,11 +1,39 @@
-const Progress = require('progress');
-const chalk = require('chalk');
-const webpack = require('webpack');
+// 'use strict';
+
+// inspired by kuler and node-progress
+
+const Progress = require('./lib/node-progress')
+const webpack = require('webpack')
 
 module.exports = function ColoredProgressBarPlugin(options) {
     const defaultOptions = {
         width: 50,
-        endWidth : 50,
+        endWidth: 50,
+
+        global: {
+            color: null,
+            visible: null,
+            clear: null
+        },
+        status: {
+            color: 'blue',
+            visible: true,
+            clear: false
+        },
+        bar: {
+            color: 'yellow',
+            visible: true,
+            clear: false
+        },
+        percent: {
+            color: 'green',
+            visible: true,
+            clear: false
+        },
+        //TODO Créer un objet contenant les trois propriétés, est-ce que ça apporte quelque chose ?
+
+        //TODO Voir pour une fonction random des couleurs
+
         color: 'blue',
         clear: false,
         clearStatus: false,
@@ -14,7 +42,39 @@ module.exports = function ColoredProgressBarPlugin(options) {
     };
     options = {...defaultOptions, ...options};
 
-    const fmt = eval('chalk.' + options.color)(':completed :bar :per100 :msg')
+    const ansiColors = {
+        defaultForegroundColor: '39',
+        black: '30',
+        red: '31',
+        green: '32',
+        yellow: '33',
+        blue: '34',
+        magenta: '35',
+        cyan: '36',
+        lightgray: '37',
+        darkgray: '90',
+        lightred: '91',
+        lightgreen: '92',
+        lightyellow: '93',
+        lightblue: '94',
+        lightmagenta: '95',
+        lightcyan: '96',
+        white: '97'
+    }
+
+    const colorize = (color, text) => {
+        return '\x1b[' + color + 'm' + text + '\x1b[39;49m'
+    }
+
+    let fmt
+
+    if (options.global.color === null) {
+        fmt = colorize(ansiColors[options.status.color], ':completed ')
+            + colorize(ansiColors[options.bar.color], ':bar ')
+            + colorize(ansiColors[options.percent.color], ':percent :msg')
+    } else {
+        fmt = colorize(ansiColors[options.global.color], ':completed :bar :percent :msg')
+    }
 
     const opt = Object.assign({
         complete: '█',
@@ -34,16 +94,21 @@ module.exports = function ColoredProgressBarPlugin(options) {
             bar.update(100, {
                 msg: '',
                 completed: options.clearStatus ? '' : 'Completed ',
-                per100: options.clearPerCent ? '' : '100%'
+                percent: options.clearPerCent ? '' : '100%'
             });
             completed = true;
         } else if (!completed) {
-            const per100 = (percent * 100).toFixed() + '%'
             bar.update(percent, {
                 msg: msg,
                 completed: ' In progress ',
-                per100: per100
+                percent: (percent * 100).toFixed() + '%'
             });
         }
     });
 };
+
+
+dd = (item = null) => {
+    console.log(item)
+    process.exit(0)
+}

@@ -35,50 +35,39 @@ plugins: [
 
 ## Options
 
-- #### Widths
-    - `width` - Width of the progress bar (on a single line)
-    - `endWidth` - Width of the progress bar after completed (also on a single line)
+#### `width` - The width of the progress bar (on a single line)
 
-- #### Visibility after completed
-    - `clear` - Clear all the progress bar
-    - `clearStatus` - Clear only status
-    - `clearBar` - Clear only bar
-    - `clearPerCent` - Clear only percentage
+#### `color` - The color of the progress bar accepts the following values:
 
-- #### `color` - Color of the progress bar accepts the following values:
-
-    - `black`
-    - `red`
-    - `green`
-    - `yellow`
-    - `blue`
-    - `magenta`
-    - `cyan`
-    - `white`
-    - `blackBright` (alias: `gray`, `grey`)
-    - `redBright`
-    - `greenBright`
-    - `yellowBright`
-    - `blueBright`
-    - `magentaBright`
-    - `cyanBright`
-    - `whiteBright`
+- `black`
+- `red`
+- `green`
+- `yellow`
+- `blue`
+- `magenta`
+- `cyan`
+- `white`
+- `blackBright` (alias: `gray`, `grey`)
+- `redBright`
+- `greenBright`
+- `yellowBright`
+- `blueBright`
+- `magentaBright`
+- `cyanBright`
+- `whiteBright`
 
 Accept almost any modifiers, colors and background colors from [chalk](https://github.com/chalk/chalk).
 
 The default options are :
 
 ```javascript
-    new ColoredProgressBar({
-      width: 50,
-      endWidth: 50,
-      color: 'blue',
-      clear: false,
-      clearStatus: false,
-      clearBar: false,
-      clearPerCent: false
-    })
+    new ColoredProgressBarPlugin({
+    width: 50,
+    endWidth: 0,
+    color: 'blue'
+})
 ```
+
 
 ## Dependencies
 
