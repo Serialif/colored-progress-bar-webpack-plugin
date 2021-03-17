@@ -1,10 +1,10 @@
 <div align="center">
-    <p align="center"><a href="https://serialif.com"><img width="80" height="80" src="https://serialif.com/images/serialif-white.png" alt="Serialif"></a>
+    <p align="center"><a href="https://serialif.com"><img width="80" height="80" src="https://serialif.com/images/serialif.png" alt="Serialif"></a>
 <hr>
     <p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin.png"
              alt="Colored Progress Bar Webpack Plugin"></p>
 
-<h3 align="center">A customizable colorful progress bar plugin for Webpack</h3>
+<h3 align="center">A progress bar plugin for Webpack with customizable color and width.</h3>
 <p align="center"><a href="https://github.com/webpack/webpack"><img width="60" height="60" src="https://webpack.js.org/assets/icon-square-big.svg" alt="Webpack"></a></p>
 <hr>
 <p align="center"><img src="https://media.giphy.com/media/lrbIDcwxyyo9eKLAXw/giphy.gif" alt="colored-progress-bar-webpack-plugin">
@@ -12,7 +12,6 @@
 </div>
 
 # Colored Progress Bar Webpack Plugin
-
 ## Installation
 
 ```
@@ -24,12 +23,12 @@ npm i -D colored-progress-bar-webpack-plugin
 Include the following in your Webpack config.
 
 ```javascript
-const ColoredProgressBar = require('colored-progress-bar-webpack-plugin');
+const ColoredProgressBarPlugin = require('colored-progress-bar-webpack-plugin');
 
 ...
 
 plugins: [
-    new ColoredProgressBar()
+    new ColoredProgressBarPlugin()
 ]
 ```
 
@@ -70,7 +69,7 @@ The default options are :
 
 
 ## Dependencies
-
+- [webpack](https://github.com/webpack/webpack)
 - [node-progress](https://github.com/visionmedia/node-progress)
 - [chalk](https://github.com/chalk/chalk)
 

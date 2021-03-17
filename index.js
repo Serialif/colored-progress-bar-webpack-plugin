@@ -1,111 +1,58 @@
-// 'use strict';
-
-// process.exit(0)
-
 // inspired by kuler, node-progress and ansi-parser
 
-const Progress = require('./lib/node-progress')
 const webpack = require('webpack')
+const Config = require('./lib/config')
+const ProgressBar = require('./lib/progress-bar')
+const Terminal = require('./lib/terminal')
 
-module.exports = function ColoredProgressBarPlugin(options) {
-    const defaultOptions = {
-        width: 50,
-        endWidth: 50,
+class ColoredProgressBarPlugin {
+    constructor(options) {
+        this.options = {...Config.DEFAULT_OPTIONS, ...options}
 
-        global: {
-            color: null,
-            visible: null,
-            clear: null
-        },
-        status: {
-            color: 'blue',
-            visible: true,
-            clear: false
-        },
-        bar: {
-            color: 'yellow',
-            visible: true,
-            clear: false
-        },
-        percent: {
-            color: 'green',
-            visible: true,
-            clear: false
-        },
-        //TODO Créer un objet contenant les trois propriétés, est-ce que ça apporte quelque chose ?
+        let format = this.getFormat()
 
-        //TODO Voir pour une fonction random des couleurs
+        const opt = Object.assign({
+            complete: this.options.completeChar,
+            incomplete: this.options.incompleteChar,
+            width: this.options.width,
+            total: this.options.TOTAL,
+        })
 
-        color: 'blue',
-        clear: false,
-        clearStatus: false,
-        clearBar: false,
-        clearPerCent: false
-    };
-    options = {...defaultOptions, ...options};
+        let bar = new ProgressBar(format, opt, Terminal)
+        let completed = false
 
-    const ansiColors = {
-        defaultForegroundColor: '39',
-        black: '30',
-        red: '31',
-        green: '32',
-        yellow: '33',
-        blue: '34',
-        magenta: '35',
-        cyan: '36',
-        lightgray: '37',
-        darkgray: '90',
-        lightred: '91',
-        lightgreen: '92',
-        lightyellow: '93',
-        lightblue: '94',
-        lightmagenta: '95',
-        lightcyan: '96',
-        white: '97'
+        return new webpack.ProgressPlugin(function (percent, message, ...args) {
+            if (args[0] === 'after emit') {
+                bar.update(100, {
+                    status: 'Completed ',
+                    percent: '100%',
+                    message: ''
+                })
+                completed = true
+            } else if (!completed) {
+                bar.update(percent, {
+                    status: 'In progress ',
+                    percent: (percent * 100).toFixed() + '% ',
+                    message: message
+                })
+            }
+        })
     }
 
-    const colorize = (color, text) => {
-        return '\x1b[' + color + 'm' + text + '\x1b[39;49m'
-    }
-
-    let format
-
-    if (options.global.color === null) {
-        format = colorize(ansiColors[options.status.color], ':completed ')
-            + colorize(ansiColors[options.bar.color], ':bar ')
-            + colorize(ansiColors[options.percent.color], ':percent :msg')
-    } else {
-        format = colorize(ansiColors[options.global.color], ':completed :bar :percent :msg')
-    }
-
-    const opt = Object.assign({
-        complete: '█',
-        incomplete: '░',
-        width: options.width,
-        total: 100,
-        clear: options.clear
-    });
-
-    let bar = new Progress(format, opt);
-    let completed = false;
-    process.stderr.write('\n')
-
-    return new webpack.ProgressPlugin(function (percent, msg, ...args) {
-        if (args[0] === 'after emit') {
-            bar.width = options.clearBar ? 0 : options.endWidth
-            bar.update(100, {
-                msg: '',
-                completed: options.clearStatus ? '' : 'Completed ',
-                percent: options.clearPerCent ? '' : '100%'
-            });
-            completed = true;
-        } else if (!completed) {
-            bar.update(percent, {
-                msg: msg,
-                completed: ' In progress ',
-                percent: (percent * 100).toFixed() + '%'
-            });
+    getFormat() {
+        if (this.options.all.color === null) {
+            return this.colorize(this.options.status.color, ':status ')
+                + this.colorize(this.options.progressBar.color, ':bar ')
+                + this.colorize(this.options.percent.color, ':percent ')
+                + this.colorize(this.options.message.color, ':message')
+        } else {
+            return colorize(this.options.all.color, ':status :bar :percent :message')
         }
-    });
-};
+    }
 
+    colorize(color, text) {
+        return '\x1b[' + Config.ANSI_COLORS[color] + 'm' + text + '\x1b[39;49m'
+    }
+}
+
+module.exports = ColoredProgressBarPlugin
