@@ -1,7 +1,7 @@
 <div align="center">
     <p align="center"><a href="https://serialif.com"><img width="80" height="80" src="https://serialif.com/images/serialif.png" alt="Serialif"></a>
 <hr>
-    <p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin.png"
+    <p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin-logo.png"
              alt="Colored Progress Bar Webpack Plugin"></p>
 
 <h3 align="center">A progress bar plugin for Webpack with customizable color and width.</h3>
@@ -9,9 +9,18 @@
 <hr>
 <p align="center"><img src="https://media.giphy.com/media/lrbIDcwxyyo9eKLAXw/giphy.gif" alt="colored-progress-bar-webpack-plugin">
     </p>
+<p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin-example.png"
+             alt="Colored Progress Bar Webpack Plugin example"></p>
 </div>
 
 # Colored Progress Bar Webpack Plugin
+
+##Features
+- No dependencies
+- Change the size of the progress bar up to the maximum size available on the line
+- Color the whole bar with one color or each element separately
+- Cursor is hidden during progression
+
 ## Installation
 
 ```
@@ -23,55 +32,58 @@ npm i -D colored-progress-bar-webpack-plugin
 Include the following in your Webpack config.
 
 ```javascript
-const ColoredProgressBarPlugin = require('colored-progress-bar-webpack-plugin');
-
-...
+const ColoredProgressBar = require('colored-progress-bar-webpack-plugin');
 
 plugins: [
-    new ColoredProgressBarPlugin()
+    new ColoredProgressBar()
 ]
 ```
 
 ## Options
+### Width
+- #### Number of characters of the progress bar (on a single line)
+    - `width`
+### Colors
+- #### Color of the entire progress bar
+  - `all: {color}`
+- #### Color of each item separately  
+  - `status: {color}`
+  - `progressBar: {color}`
+  - `percent: {color}`
+  - `message: {color}` 
 
-#### `width` - The width of the progress bar (on a single line)
+  
+- *Accepts the following values:*
+  - `black`
+  - `red`
+  - `green`
+  - `yellow`
+  - `blue`
+  - `magenta`
+  - `cyan`
+  - `darkGray`
+  - `lightGray`
+  - `lightRed`
+  - `lightGreen`
+  - `lightYellow`
+  - `lightBlue`
+  - `lightMagenta`
+  - `lightCyan`
+  - `white`
 
-#### `color` - The color of the progress bar accepts the following values:
-
-- `black`
-- `red`
-- `green`
-- `yellow`
-- `blue`
-- `magenta`
-- `cyan`
-- `white`
-- `blackBright` (alias: `gray`, `grey`)
-- `redBright`
-- `greenBright`
-- `yellowBright`
-- `blueBright`
-- `magentaBright`
-- `cyanBright`
-- `whiteBright`
-
-Accept almost any modifiers, colors and background colors from [chalk](https://github.com/chalk/chalk).
-
-The default options are :
+### Default values
 
 ```javascript
-    new ColoredProgressBarPlugin({
-    width: 50,
-    endWidth: 0,
-    color: 'blue'
+    new ColoredProgressBar({
+        width: 50,
+        all: {color: null},
+        status: {color: 'blue'},
+        progressBar: {color: 'yellow'},
+        percent: {color: 'green'},
+        message: {color: 'lightBlue'}
 })
 ```
-
-
-## Dependencies
-- [webpack](https://github.com/webpack/webpack)
-- [node-progress](https://github.com/visionmedia/node-progress)
-- [chalk](https://github.com/chalk/chalk)
+If you set the color for `all`, it will overwrite all the others
 
 ## License
 
