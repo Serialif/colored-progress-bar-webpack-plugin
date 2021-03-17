@@ -22,7 +22,7 @@
   "_resolved": "https://registry.npmjs.org/colored-progress-bar-webpack-plugin/-/colored-progress-bar-webpack-plugin-1.0.0.tgz",
   "_shasum": "bb94f9f430500f7524b57e30d66af1852fa35bcc",
   "_spec": "colored-progress-bar-webpack-plugin",
-  "_where": "D:\\dev\\code\\current\\memo2",
+  "_where": "D:\\dev\\code\\current\\webpack\\colored-progress-bar-webpack-plugin",
   "author": {
     "name": "Sébastien Filaire",
     "email": "contact@serialif.com",
@@ -53,5 +53,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.1.1"
+  "version": "1.1.2"
 }

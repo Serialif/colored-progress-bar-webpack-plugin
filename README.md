@@ -7,9 +7,7 @@
 <h3 align="center">A progress bar plugin for Webpack with customizable color and width.</h3>
 <p align="center"><a href="https://github.com/webpack/webpack"><img width="60" height="60" src="https://webpack.js.org/assets/icon-square-big.svg" alt="Webpack"></a></p>
 <hr>
-<p align="center"><img src="https://media.giphy.com/media/lrbIDcwxyyo9eKLAXw/giphy.gif" alt="colored-progress-bar-webpack-plugin">
-    </p>
-<p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin-example.png"
+<p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin-examples.png"
              alt="Colored Progress Bar Webpack Plugin example"></p>
 </div>
 
