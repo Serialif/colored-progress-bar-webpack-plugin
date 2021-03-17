@@ -3,7 +3,6 @@
 const webpack = require('webpack')
 const Config = require('./lib/config')
 const ProgressBar = require('./lib/progress-bar')
-const Terminal = require('./lib/terminal')
 
 class ColoredProgressBarPlugin {
     constructor(options) {
@@ -18,7 +17,7 @@ class ColoredProgressBarPlugin {
             total: this.options.TOTAL,
         })
 
-        let bar = new ProgressBar(format, opt, Terminal)
+        let bar = new ProgressBar(format, opt)
         let completed = false
 
         return new webpack.ProgressPlugin(function (percent, message, ...args) {

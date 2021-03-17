@@ -22,7 +22,10 @@
 ## Installation
 
 ```
-npm i -D colored-progress-bar-webpack-plugin
+npm install -D colored-progress-bar-webpack-plugin
+```
+```
+yarn add -D colored-progress-bar-webpack-plugin
 ```
 
 ## Usage
