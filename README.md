@@ -15,7 +15,7 @@
 
 # Colored Progress Bar Webpack Plugin
 
-##Features
+## Features
 - No dependencies
 - Change the size of the progress bar up to the maximum size available on the line
 - Color the whole bar with one color or each element separately
