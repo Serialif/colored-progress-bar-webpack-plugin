@@ -10,19 +10,19 @@
 <p align="center"><img src="https://serialif.com/images/colored-progress-bar-webpack-plugin-demos.png"
              alt="Colored Progress Bar Webpack Plugin example"></p>
 </div>
+<hr>
 
-# Colored Progress Bar Webpack Plugin
-
-## Features
+## <span style="color: #8C54FE">Features</span>
 - No dependencies
-- Show only the elements you want
-- Color whole bar with one color or each element separately
-- Change size of the progress bar up to the maximum size available on the line
-- Change the characters of the bar (complete and incomplete)
-- Hide cursor during progression
-- Play the default notification sound when compilation is complete. Very useful in watch mode. *Currently, this feature is only available for Windows 10 users.*
+- Show <span style="color: #F92672">**only the elements you want**</span>
+- Modify <span style="color: #F92672">**color**</span> whole bar with one color or each element separately
+- Modify <span style="color: #F92672">**size**</span> of the progress bar up to the maximum size available on the line
+- Modify <span style="color: #F92672">**characters**</span> of the bar (complete and incomplete)
+- <span style="color: #F92672">**Hide cursor**</span> during progression
+- Play the default <span style="color: #F92672">**notification sound**</span> when compilation is complete. Very useful 
+  in watch mode. *Currently, <span style="color: #FD971F">this feature is only available for Windows 10 users</span>.*
 
-## Installation
+## <span style="color: #8C54FE">Installation</span>
 
 ```
 npm install -D colored-progress-bar-webpack-plugin
@@ -31,7 +31,7 @@ npm install -D colored-progress-bar-webpack-plugin
 yarn add -D colored-progress-bar-webpack-plugin
 ```
 
-## Usage
+## <span style="color: #8C54FE">Usage</span>
 
 Include the following in your Webpack config.
 
@@ -43,31 +43,33 @@ Include the following in your Webpack config.
   ]
 ```
 
-## Elements
+## <span style="color: #8C54FE">Elements</span>
 The progress bar is made up of 5 elements on 2 lines.
 ### First row
 
-- Status : compilation status
-- Bar : the bar itself 
-- Percent : percentage of progression
-- Message : summary of the action the compiler performs
-### Second row
-- Detail : action that the compiler performs
+- <span style="color: #82B414">**Status**</span> : compilation status
+- <span style="color: #82B414">**Bar**</span> : the bar itself 
+- <span style="color: #82B414">**Percent**</span> : percentage of progression
+- <span style="color: #82B414">**Message**</span> : summary of the action the compiler performs
 
-## Options
+### Second row
+- <span style="color: #82B414">**Detail**</span> : action that the compiler performs
+
+## <span style="color: #8C54FE">Options</span>
 ### Elements
-Define the elements to display *(boolean)*
+Define the elements to display <span style="color: #8ED6FB">*(boolean)*</span>
   - `showStatus`
   - `showBar`
   - `showPercent`
   - `showMessage`
   - `showDetail`
+
 ### Colors
-Color of the entire progress bar *(string)*
-  - `colorAll`
-    
-  If you set the color for the whole bar, it will override the element colors
-Color of each item separately *(string)*
+Color of the entire progress bar <span style="color: #8ED6FB">*(string)*</span>
+  - `colorAll` <span style="color: #FD971F">*if you set the color for the whole bar, it will override the elements colors*</span>
+  
+
+Color of each item separately <span style="color: #8ED6FB">*(string)*</span>
   - `colorStatus`
   - `colorBar`
   - `colorPercent`
@@ -91,26 +93,29 @@ Color of each item separately *(string)*
   - `lightMagenta`
   - `lightCyan`
   - `white`
-### Width
-Number of characters of the progress bar *(number)*
-  - `width`
 
-  If this exceeds the maximum size available on the line, this value will be automatically reduced.
+### Width
+Number of characters of the progress bar <span style="color: #8ED6FB">*(number)*</span>
+  - `width` <span style="color: #FD971F">*if this exceeds the maximum size available on the line, this value will be automatically reduced*</span>
+
 ### Characters
-Define the characters used to represent the completed and uncompleted portion of the bar *(string)*
+Define the characters used to represent the completed and uncompleted portion of the bar <span style="color: #8ED6FB">*(string)*</span>
   - `completeChar`
   - `incompleteChar`
+
 ### Detail alignment
-Define if the detail text should be aligned with the bar *(boolean)*
+Define if the detail text should be aligned with the bar <span style="color: #8ED6FB">*(boolean)*</span>
   - `alignDetailOnBar`
+
 ### Cursor
-Define if the cursor should be hidden during compilation *(boolean)*
+Define if the cursor should be hidden during compilation <span style="color: #8ED6FB">*(boolean)*</span>
   - `hideCursor`
 ### Notification sound
-Define if the default notification sound when compilation is complete *(boolean)*
-  - `notification`
 
-*Only available for Windows 10 users*
+Define if the default notification sound is played when compilation is complete <span style="color: #8ED6FB">*(boolean)*</span>
+  - `notification` <span style="color: #FD971F">*only available for Windows 10 users*</span>
+
+
 ### Default values
 
 ```javascript
@@ -136,6 +141,6 @@ Define if the default notification sound when compilation is complete *(boolean)
       notification: false,
 })
 ```
-## License
+## <span style="color: #8C54FE">License</span>
 
 MIT

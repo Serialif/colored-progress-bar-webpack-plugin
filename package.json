@@ -1,28 +1,4 @@
 {
-  "_from": "colored-progress-bar-webpack-plugin",
-  "_id": "colored-progress-bar-webpack-plugin@1.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-/frpWa22Ax3Q9KhjExHbqUUhcwX3O/LE4JUk0PBlV4YFc+9tpuTVrInYmSkhjkLRI+zZWFJcQ6FHkf3sYYSswg==",
-  "_location": "/colored-progress-bar-webpack-plugin",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "colored-progress-bar-webpack-plugin",
-    "name": "colored-progress-bar-webpack-plugin",
-    "escapedName": "colored-progress-bar-webpack-plugin",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#DEV:/",
-    "#USER"
-  ],
-  "_resolved": "https://registry.npmjs.org/colored-progress-bar-webpack-plugin/-/colored-progress-bar-webpack-plugin-1.0.0.tgz",
-  "_shasum": "bb94f9f430500f7524b57e30d66af1852fa35bcc",
-  "_spec": "colored-progress-bar-webpack-plugin",
-  "_where": "D:\\dev\\code\\current\\webpack\\colored-progress-bar-webpack-plugin",
   "author": {
     "name": "Sébastien Filaire",
     "email": "contact@serialif.com",
@@ -40,7 +16,10 @@
     "plugin",
     "progress",
     "bar",
-    "colored"
+    "colored",
+    "windows",
+    "notification",
+    "sound"
   ],
   "license": "MIT",
   "main": "index.js",
@@ -52,5 +31,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.2.2"
+  "version": "1.2.3"
 }
