@@ -1,56 +1,63 @@
-// inspired by kuler, node-progress and ansi-parser
-
 const webpack = require('webpack')
 const Config = require('./lib/config')
 const ProgressBar = require('./lib/progress-bar')
+const {exec} = require('child_process')
 
 class ColoredProgressBarPlugin {
     constructor(options) {
         this.options = {...Config.DEFAULT_OPTIONS, ...options}
+        this.options.ansiColors = Config.ANSI_COLORS
 
-        let format = this.getFormat()
-
-        const opt = Object.assign({
-            complete: this.options.completeChar,
-            incomplete: this.options.incompleteChar,
-            width: this.options.width,
-            total: this.options.TOTAL,
-        })
-
-        let bar = new ProgressBar(format, opt)
+        let progressBar = new ProgressBar(this.getFormat(), this.options)
         let completed = false
+        let notification = this.options.notification;
 
         return new webpack.ProgressPlugin(function (percent, message, ...args) {
-            if (args[0] === 'after emit') {
-                bar.update(100, {
+            if (message === 'done') {
+                progressBar.update(100, {
                     status: 'Completed ',
                     percent: '100%',
-                    message: ''
+                    message: 'done',
+                    detail: ''
                 })
                 completed = true
+                if (notification) exec(`rundll32 user32.dll,MessageBeep`)
             } else if (!completed) {
-                bar.update(percent, {
+                percent = (percent * 100).toFixed()
+                progressBar.update(percent, {
                     status: 'In progress ',
-                    percent: (percent * 100).toFixed() + '% ',
-                    message: message
+                    percent: percent + '% ',
+                    message: message,
+                    detail: args.join('-')
                 })
             }
         })
     }
 
     getFormat() {
-        if (this.options.all.color === null) {
-            return this.colorize(this.options.status.color, ':status ')
-                + this.colorize(this.options.progressBar.color, ':bar ')
-                + this.colorize(this.options.percent.color, ':percent ')
-                + this.colorize(this.options.message.color, ':message')
-        } else {
-            return colorize(this.options.all.color, ':status :bar :percent :message')
+        let format = this.colorize(this.options.colorAll, ':status :bar :percent :message')
+        if (this.options.colorAll === null) {
+            format = this.getElement('status', this.options.colorStatus)
+                + this.getElement('bar', this.options.colorBar)
+                + this.getElement('percent', this.options.colorPercent)
+                + this.getElement('message', this.options.colorMessage)
         }
+        return format.length > 0 ? format : ' '
     }
 
-    colorize(color, text) {
+    getElement(element, color) {
+        if (this.options['show' + this.ucFirst(element)] === true) {
+            return ' ' + this.colorize(Config.BAR_ELEMENTS[element], color) + ' '
+        }
+        return ''
+    }
+
+    colorize(text, color) {
         return '\x1b[' + Config.ANSI_COLORS[color] + 'm' + text + '\x1b[39;49m'
+    }
+
+    ucFirst(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1)
     }
 }
 

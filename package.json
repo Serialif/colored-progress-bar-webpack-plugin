@@ -32,9 +32,8 @@
     "url": "https://github.com/Serialif/colored-progress-bar-webpack-plugin/issues"
   },
   "bundleDependencies": false,
-  "dependencies": {},
   "deprecated": false,
-  "description": "A progress bar plugin for Webpack with customizable color and width.",
+  "description": "A customizable progress bar plugin for Webpack",
   "homepage": "https://github.com/Serialif/colored-progress-bar-webpack-plugin#readme",
   "keywords": [
     "webpack",
@@ -53,5 +52,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.1.2"
+  "version": "1.2.0"
 }
