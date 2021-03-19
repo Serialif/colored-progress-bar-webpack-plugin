@@ -17,7 +17,7 @@ class ColoredProgressBarPlugin {
                 progressBar.update(100, {
                     status: 'Completed ',
                     percent: '100%',
-                    message: 'done',
+                    message: 'done    ',
                     detail: ''
                 })
                 completed = true

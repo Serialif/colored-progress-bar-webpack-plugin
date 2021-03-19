@@ -14,6 +14,7 @@
 # Colored Progress Bar Webpack Plugin
 
 ## Features
+- No dependencies
 - Show only the elements you want
 - Color whole bar with one color or each element separately
 - Change size of the progress bar up to the maximum size available on the line
@@ -55,26 +56,25 @@ The progress bar is made up of 5 elements on 2 lines.
 
 ## Options
 ### Elements
-- #### Define the elements to display *(boolean)*
+Define the elements to display *(boolean)*
   - `showStatus`
   - `showBar`
   - `showPercent`
   - `showMessage`
   - `showDetail`
 ### Colors
-- #### Color of the entire progress bar *(string)*
+Color of the entire progress bar *(string)*
   - `colorAll`
     
   If you set the color for the whole bar, it will override the element colors
-- #### Color of each item separately *(string)*
+Color of each item separately *(string)*
   - `colorStatus`
   - `colorBar`
   - `colorPercent`
   - `colorMessage`
   - `colorDetail`
 
-  
-- *Accepts the following values:*
+*Accepts the following values:*
   - `black`
   - `red`
   - `green`
@@ -92,22 +92,22 @@ The progress bar is made up of 5 elements on 2 lines.
   - `lightCyan`
   - `white`
 ### Width
-- #### Number of characters of the progress bar *(number)*
+Number of characters of the progress bar *(number)*
   - `width`
 
   If this exceeds the maximum size available on the line, this value will be automatically reduced.
 ### Characters
-- #### Define the characters used to represent the completed and uncompleted portion of the bar *(string)*
+Define the characters used to represent the completed and uncompleted portion of the bar *(string)*
   - `completeChar`
   - `incompleteChar`
 ### Detail alignment
-- #### Define if the detail text should be aligned with the bar *(boolean)*
+Define if the detail text should be aligned with the bar *(boolean)*
   - `alignDetailOnBar`
 ### Cursor
-- #### Define if the cursor should be hidden during compilation *(boolean)*
+Define if the cursor should be hidden during compilation *(boolean)*
   - `hideCursor`
 ### Notification sound
-- #### Define if the default notification sound when compilation is complete *(boolean)*
+Define if the default notification sound when compilation is complete *(boolean)*
   - `notification`
 
 *Only available for Windows 10 users*
