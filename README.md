@@ -15,7 +15,7 @@
 ## <span style="color: #8C54FE">Features</span>
 - No dependencies
 - Show <span style="color: #F92672">**only the elements you want**</span>
-- Modify <span style="color: #F92672">**color**</span> whole bar with one color or each element separately
+- Modify <span style="color: #F92672">**color**</span> for whole bar or for each element separately
 - Modify <span style="color: #F92672">**size**</span> of the progress bar up to the maximum size available on the line
 - Modify <span style="color: #F92672">**characters**</span> of the bar (complete and incomplete)
 - <span style="color: #F92672">**Hide cursor**</span> during progression
